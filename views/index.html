@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shorter</title>
+    <style> 
+        body{text-align: center;}
+    </style>
+</head>
+<body>
+    <h1>URL Shorter</h1>
+    <input type="text" id="mainLink">
+    <button onclick="kısalt()">Kısalt</button> 
+    <p id = "shortLink"></p>
+    <script>
+        function kısalt(){
+            let mainLink = document.getElementById('mainLink');
+            //alert(mainLink.value)
+            fetch('http://localhost:3000',{
+                method : 'post',
+                headers:{
+                    'Accept':'application/json,text/plain',
+                    'Content-Type':'application/json'
+                },
+                body: JSON.stringify({
+                    mainLink:mainLink.value
+                })
+            }).then(res=>res.json()).then(response => {
+                document.getElementById("shortLink").innerHTML = `${window.location.origin}/${response}`
+            })
+        }
+    </script>
+</body>
+</html>
