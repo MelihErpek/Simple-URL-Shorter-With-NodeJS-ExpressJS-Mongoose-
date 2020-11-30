@@ -8,11 +8,11 @@ app.use(bodyParser2.json())
 
 
 const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://melihnode:meliherpek1@cluster0.g1oel.mongodb.net/<dbname>?retryWrites=true&w=majority";
+const uri = ""; // MongoDB connection link
 let link;
 
 
-mongoose.connect("mongodb+srv://melihnode:meliherpek1@cluster0.g1oel.mongodb.net/urlShorter?retryWrites=true&w=majority", {
+mongoose.connect("", {              // MongoDB connection link
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
